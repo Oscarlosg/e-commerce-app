@@ -1,3 +1,4 @@
+import Nav from "@/components/Nav";
 import { useSession, signIn, signOut } from "next-auth/react";
 
 export default function Home() {
@@ -6,14 +7,10 @@ export default function Home() {
   if (session) {
     return (
       <>
-        <button
-          onClick={() => signOut()}
-          className="bg-white p-2 rounded-lg px-4"
-        >
-          sign out
-        </button>
-        <div className=""> We are logged in through google! yahoo!!!!</div>
+      <div className="bg-blue-900 min-h-screen">
+        <Nav />
         Signed in as {session.user.name} <br />
+        </div>
       </>
     );
   } else {
