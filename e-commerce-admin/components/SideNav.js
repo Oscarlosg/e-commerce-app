@@ -3,11 +3,10 @@ import { useRouter } from "next/router";
 import React from "react";
 
 function SideNav() {
-
-const unselectedLink = "flex gap-1 p-1";
-const selectedLink = `${unselectedLink} bg-white text-blue-900 rounded-l-lg`
-const currentPage = useRouter()
-const {pathname} = currentPage;
+  const unselectedLink = "flex gap-1 p-1";
+  const selectedLink = `${unselectedLink} bg-white text-blue-900 rounded-l-lg`;
+  const currentPage = useRouter();
+  const { pathname } = currentPage;
 
   return (
     <aside className="text-white p-4 pr-0">
@@ -29,7 +28,10 @@ const {pathname} = currentPage;
         <span>Ecommerce-Admin</span>
       </Link>
       <nav className="flex flex-col gap-2">
-        <Link href={"/"} className={pathname === "/" ? selectedLink : unselectedLink}>
+        <Link
+          href={"/"}
+          className={pathname === "/" ? selectedLink : unselectedLink}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -46,7 +48,12 @@ const {pathname} = currentPage;
           </svg>
           Dashboard
         </Link>
-        <Link href={"/products"} className={pathname.includes("/products") ? selectedLink : unselectedLink}>
+        <Link
+          href={"/products"}
+          className={
+            pathname.includes("/products") ? selectedLink : unselectedLink
+          }
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -63,7 +70,12 @@ const {pathname} = currentPage;
           </svg>
           Products
         </Link>
-        <Link href={"/orders"} className={pathname.includes("/orders") ? selectedLink : unselectedLink}>
+        <Link
+          href={"/orders"}
+          className={
+            pathname.includes("/orders") ? selectedLink : unselectedLink
+          }
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -80,7 +92,12 @@ const {pathname} = currentPage;
           </svg>
           Orders
         </Link>
-        <Link href={"/settings"} className={pathname.includes("/settings") ? selectedLink : unselectedLink}>
+        <Link
+          href={"/settings"}
+          className={
+            pathname.includes("/settings") ? selectedLink : unselectedLink
+          }
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
