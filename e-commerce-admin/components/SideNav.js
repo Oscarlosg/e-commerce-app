@@ -1,10 +1,17 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
 
-function Nav() {
+function SideNav() {
+
+const unselectedLink = "flex gap-1 p-1";
+const selectedLink = `${unselectedLink} bg-white text-blue-900 rounded-l-lg`
+const currentPage = useRouter()
+const {pathname} = currentPage;
+
   return (
-    <aside className="text-white p-4">
-      <Link href="" className="flex gap-1 mb-4">
+    <aside className="text-white p-4 pr-0">
+      <Link href="" className="flex gap-1 mb-4 mr-4">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -22,7 +29,7 @@ function Nav() {
         <span>Ecommerce-Admin</span>
       </Link>
       <nav className="flex flex-col gap-2">
-        <Link href={"/"} className="flex gap-1">
+        <Link href={"/"} className={pathname === "/" ? selectedLink : unselectedLink}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -39,7 +46,7 @@ function Nav() {
           </svg>
           Dashboard
         </Link>
-        <Link href={"/"} className="flex gap-1">
+        <Link href={"/products"} className={pathname.includes("/products") ? selectedLink : unselectedLink}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -56,7 +63,7 @@ function Nav() {
           </svg>
           Products
         </Link>
-        <Link href={"/"} className="flex gap-1">
+        <Link href={"/orders"} className={pathname.includes("/orders") ? selectedLink : unselectedLink}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -73,7 +80,7 @@ function Nav() {
           </svg>
           Orders
         </Link>
-        <Link href={"/"} className="flex gap-1">
+        <Link href={"/settings"} className={pathname.includes("/settings") ? selectedLink : unselectedLink}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -95,4 +102,4 @@ function Nav() {
   );
 }
 
-export default Nav;
+export default SideNav;
