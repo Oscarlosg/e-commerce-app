@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React from "react";
+
 
 function SideNav() {
   const unselectedLink = "flex gap-1 p-1";
