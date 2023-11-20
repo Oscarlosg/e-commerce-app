@@ -1,12 +1,38 @@
-import Layout from '@/components/Layout'
+import Layout from "@/components/Layout";
+import { useState } from "react";
 
+const NewProduct = () => {
+  const [title, SetTitle] = useState("");
+  const [description, SetDescription] = useState("");
+  const [price, SetPrice] = useState("");
 
-const newProduct = () => {
   return (
     <Layout>
-        <input type="text" placeholder="product name" className="" />
+      <h1>New Product</h1>
+      <label>Product Name</label>
+      <input
+        type="text"
+        placeholder="product name"
+        value={title}
+        onChange={(e) => SetTitle(e.target.value)}
+      />
+      <label>Description</label>
+      <textarea
+        placeholder="description"
+        className="pb-[4em]"
+        value={description}
+        onChange={(e) => SetDescription(e.target.value)}
+      />
+      <label>Price (USD only)</label>
+      <input
+        type="number"
+        placeholder="price"
+        value={price}
+        onChange={(e) => SetPrice(e.target.value)}
+      />
+      <button className="btn-primary">Save</button>
     </Layout>
-  )
-}
+  );
+};
 
-export default newProduct
+export default NewProduct;

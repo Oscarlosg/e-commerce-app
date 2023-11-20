@@ -7,7 +7,7 @@ const Products = () => {
     <Layout>
       <Link
         href="/products/new"
-        className="bg-blue-900 rounded-md text-white py-1 px-2"
+        className="btn-primary"
       >
         Add new product
       </Link>
