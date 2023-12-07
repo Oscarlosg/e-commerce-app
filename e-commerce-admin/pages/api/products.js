@@ -1,17 +1,19 @@
-import clientPromise from "@/lib/mongodb";
+// ROUTE - API/PRODUCTS
+import mongooseConnect from "@/lib/mongoose";
 import { Product } from "@/modles/Product";
-import mongoose from "mongoose";
 
  async function handle (req, res) {
     const {method} = req;
-mongoose.Promise = clientPromise;
+    mongooseConnect();
     if(method === "POST"){
-        const {title, desciption, price} = req.body
-        await Product.create({
-            title,description,price
+        const {title, description, price} = req.body
+        const productRes = await Product.create({
+            title,
+            description,
+            price
         })
+        res.json(productRes)
     }
-
 }
 
 export default handle
