@@ -7,9 +7,9 @@ const NewProduct = () => {
   const [description, SetDescription] = useState("");
   const [price, SetPrice] = useState();
   async function createProduct(e) {
-    e.preventDefault()
+    e.preventDefault();
     const data = { title, description, price };
-    await axios.post("api/products", data);
+    await axios.post("/api/products", data);
   }
   return (
     <Layout>
