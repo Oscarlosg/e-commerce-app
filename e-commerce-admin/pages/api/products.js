@@ -1,6 +1,6 @@
 // ROUTE - API/PRODUCTS
 import mongooseConnect from "@/lib/mongoose";
-import { Product } from "@/modles/Product";
+import { Product } from "@/models/Product";
 
  async function handle (req, res) {
     const {method} = req;
@@ -13,6 +13,9 @@ import { Product } from "@/modles/Product";
             price
         })
         res.json(productRes)
+    }
+    if(method === "GET"){
+        res.json(await Product.find())
     }
 }
 
