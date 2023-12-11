@@ -24,7 +24,13 @@ async function handle(req, res) {
   if (method === "PUT") {
     const { _id, title, description, price } = req.body;
     await Product.updateOne({ _id }, { title, description, price });
-    res.json(true);
+    res.status(204).send();
+  }
+  if (method === "DELETE") {
+    if (req.query?.id) {
+      await Product.deleteOne({ _id: req.query.id });
+      res.status(204).send();
+    }
   }
 }
 
