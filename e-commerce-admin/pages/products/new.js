@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import ProductFrom from "@/components/ProductFrom";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useState } from "react";
@@ -16,33 +17,8 @@ const NewProduct = () => {
   }
   return (
     <Layout>
-      <form action="" onSubmit={createProduct} className="">
-        <h1>New Product</h1>
-        <label>Product Name</label>
-        <input
-          type="text"
-          placeholder="product name"
-          value={title}
-          onChange={(e) => SetTitle(e.target.value)}
-        />
-        <label>Description</label>
-        <textarea
-          placeholder="description"
-          className="pb-[4em]"
-          value={description}
-          onChange={(e) => SetDescription(e.target.value)}
-        />
-        <label>Price (USD only)</label>
-        <input
-          type="number"
-          placeholder="price"
-          value={price}
-          onChange={(e) => SetPrice(e.target.value)}
-        />
-        <button className="btn-primary" type="submit">
-          Save
-        </button>
-      </form>
+      <h1>New Product</h1>
+      <ProductFrom />
     </Layout>
   );
 };
