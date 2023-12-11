@@ -32,7 +32,7 @@ const Products = () => {
       <table className="basic mt-2">
         <thead>
           <tr>
-            <td className="">Product Name</td>
+            <td className="font-bold">Product Name</td>
             <td></td>
           </tr>
         </thead>
