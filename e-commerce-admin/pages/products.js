@@ -38,7 +38,7 @@ const Products = () => {
           </tr>
         </thead>
         <tbody>
-          {products.length ? products.map((product, id) => (
+          {products?.length > 0 ? products.map((product, id) => (
             <tr key={id} className="">
               <td className="">{product.title}</td>
               <td>
