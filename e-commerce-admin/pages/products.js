@@ -7,6 +7,7 @@ const Products = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
     axios.get("api/products").then((res) => {
+      console.log(res.data)
       setProducts(res.data);
     });
   }, []);
@@ -37,7 +38,7 @@ const Products = () => {
           </tr>
         </thead>
         <tbody>
-          {products.map((product, id) => (
+          {products.length ? products.map((product, id) => (
             <tr key={id} className="">
               <td className="">{product.title}</td>
               <td>
@@ -79,7 +80,7 @@ const Products = () => {
                 </Link>
               </td>
             </tr>
-          ))}
+          )): "loading..."}
         </tbody>
       </table>
     </Layout>
